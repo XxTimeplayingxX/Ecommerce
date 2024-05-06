@@ -1,0 +1,24 @@
+<div class="container mt-3">
+    <div class="row gap-3">
+        @for (productos of products; track productos; let i = $index) {
+            <div class="col mb-3 p-2 border rounded">
+                <div class="text-center">
+                    <img [src]="productos.image" alt="{{productos.title}}" class="m-2">
+                </div>
+                <hr>
+                <p>${{productos.price}}</p>
+                <h4>{{productos.title}}</h4>
+                <hr>
+                <div class="d-flex flex-row justify-content-between pt-3">
+                    <i class="fa-solid fa-star"></i>
+                    <p>{{productos.rating.rate}}</p>
+                </div>
+                <hr>
+                <div class="text-center">
+                    <button class="btn btn-primary" (click)="productToCart(i)">Comprar</button>
+                </div>
+            </div>
+
+        }
+    </div>
+</div>

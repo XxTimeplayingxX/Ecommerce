@@ -1,0 +1,54 @@
+<nav class="navbar bg-body-tertiary">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img
+        src="https://apps.bancoguayaquil.com/firmaElectronicaWeb/resources/img/logo_bg.png"
+        alt="Bootstrap"
+      />
+    </a>
+    <div>
+        <i class="fa-solid fa-cart-shopping"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasResponsive"
+        aria-controls="offcanvasResponsive"></i>
+    </div>
+
+    <div class="alert alert-info d-none d-lg-block">
+      Resize your browser to show the responsive offcanvas toggle.
+    </div>
+
+    <div
+      class="offcanvas-lg offcanvas-end"
+      tabindex="-1"
+      id="offcanvasResponsive"
+      aria-labelledby="offcanvasResponsiveLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasResponsiveLabel">
+          Productos Elegidos
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          data-bs-target="#offcanvasResponsive"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body ">
+        @for (Elegidos of productosElegidos; track Elegidos; let i = $index) 
+        {
+          <div class="card d-flex flex-column justify-content-between">
+            <div>
+              <img [src]="Elegidos.image" alt="">
+            </div>
+            <h5>{{Elegidos.title}}</h5>
+            <p>${{Elegidos.price}}</p>
+          </div>
+
+        }
+      </div>
+    </div>
+  </div>
+</nav>
